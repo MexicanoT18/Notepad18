@@ -12,6 +12,12 @@ import notepad18.buttons.NotepadMenu;
 /**
  *
  * @author Lucas
+ * 
+ * Esta é a classe principal do Notepad. Ela também é o objeto JFrame de todo o programa.
+ * Guarda instâncias das classes:
+ *      NotepadMenu: trabalha com tudo relacionado aos menus
+ *      NotepadTextArea: trabalha com tudo relacionado à área do texto.
+ * 
  */
 public class NotepadWindow extends JFrame{
     

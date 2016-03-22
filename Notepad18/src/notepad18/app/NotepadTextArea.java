@@ -11,6 +11,9 @@ import java.awt.TextArea;
 /**
  *
  * @author Lucas
+ * 
+ * Trabalha com tudo relacionado ao texto. É um objeto TextArea.
+ * 
  */
 public class NotepadTextArea extends TextArea{
     

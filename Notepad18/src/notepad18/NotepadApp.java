@@ -10,12 +10,11 @@ import notepad18.app.NotepadWindow;
 /**
  *
  * @author Lucas
+ * 
+ * Classe que guarda a main. Não faz nada além disso.
+ * 
  */
 public class NotepadApp {
-
-    /**
-     * @param args the command line arguments
-     */
     
     static NotepadWindow notepadWindow;
     

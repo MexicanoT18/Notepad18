@@ -20,6 +20,9 @@ import javax.swing.JFileChooser;
 /**
  *
  * @author Lucas
+ * 
+ * Menu File. Guarda as opções "Open", "Save" e "Close".
+ * 
  */
 public class FileMenu extends Menu implements ActionListener{
     

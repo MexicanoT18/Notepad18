@@ -11,6 +11,13 @@ import notepad18.app.NotepadWindow;
 /**
  *
  * @author Lucas
+ * 
+ * Administra todas as opções de menu: aqueles painéis do topo
+ * com os nomes "File", etc...
+ * 
+ * Serve como intermédio para a comunicação entre esses menus e a classe principal
+ * NotepadWindow.
+ * 
  */
 public class NotepadMenu extends MenuBar{
     
