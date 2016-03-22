@@ -5,7 +5,7 @@
  */
 package notepad18;
 
-import notepad18.app.MainWindow;
+import notepad18.app.NotepadWindow;
 
 /**
  *
@@ -17,12 +17,12 @@ public class NotepadApp {
      * @param args the command line arguments
      */
     
-    static MainWindow mainWindow;
+    static NotepadWindow notepadWindow;
     
     public static void main(String[] args) {
         
-        mainWindow = new MainWindow();
-        mainWindow.setVisible(true);
+        notepadWindow = new NotepadWindow();
+        notepadWindow.setVisible(true);
         
     }
     
