@@ -92,10 +92,7 @@ public class FileMenu extends Menu implements ActionListener{
                     System.out.println(ex.getMessage());
 		}
             }
-	} 
-        
-        
-        ////huehuehue
+	}
         
 	else if (event.getSource() == this.saveAsFile || (event.getSource() == this.saveFile && !hasSaved)) {
             hasSaved = true;
