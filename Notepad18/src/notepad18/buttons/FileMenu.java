@@ -38,6 +38,8 @@ public class FileMenu extends Menu implements ActionListener{
     
     private JFileChooser save;
     
+    boolean hasSaved = false;
+    
     public void initialize(NotepadMenu menu){
         
         this.setLabel("File");
@@ -78,6 +80,7 @@ public class FileMenu extends Menu implements ActionListener{
         }
         
         else if (event.getSource() == this.openFile) {
+            hasSaved = false;
             JFileChooser open = new JFileChooser();
             int option = open.showOpenDialog(notepadMenu.getNotepadWindow());
             if (option == JFileChooser.APPROVE_OPTION) {
@@ -91,7 +94,8 @@ public class FileMenu extends Menu implements ActionListener{
             }
 	} 
         
-	else if (event.getSource() == this.saveAsFile) {
+	else if (event.getSource() == this.saveAsFile || (event.getSource() == this.saveFile && !hasSaved)) {
+            hasSaved = true;
             save = new JFileChooser();
             int option = save.showSaveDialog(notepadWindow);
             if (option == JFileChooser.APPROVE_OPTION) {
@@ -112,17 +116,17 @@ public class FileMenu extends Menu implements ActionListener{
             }
 	}
         
-        else if (event.getSource() == this.saveFile){
+        else if (event.getSource() == this.saveFile && hasSaved){
             try {
                 BufferedWriter out = new BufferedWriter(new FileWriter(save.getSelectedFile().getPath()));
                 String str = notepadWindow.getTextArea().getText();
-                    for(int i=0; i<str.length(); i++){
-                        if (str.charAt(i)=='\n'){
-                            out.newLine();
-                        }
-                        else out.write(str.charAt(i));
+                for(int i=0; i<str.length(); i++){
+                    if (str.charAt(i)=='\n'){
+                        out.newLine();
                     }
-                    //out.write(notepadWindow.getTextArea().getText());
+                    else out.write(str.charAt(i));
+                }
+                //out.write(notepadWindow.getTextArea().getText());
                 out.close();
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());

@@ -24,7 +24,6 @@ public class NotepadWindow extends JFrame{
     
     int HEIGHT = 640;
     int WIDTH = 480;
-    int BUTTOM_HEIGHT = 50;
     
     private NotepadMenu menu = new NotepadMenu();
     private NotepadTextArea textArea = new NotepadTextArea();
@@ -37,9 +36,6 @@ public class NotepadWindow extends JFrame{
         this.getContentPane().setLayout(new BorderLayout()); // the BorderLayout bit makes it fill it automatically
 	this.getContentPane().add(textArea);
         
-        
-        
-        menu = new NotepadMenu();
         menu.initialize(this);
         this.setMenuBar(menu);
     }
@@ -53,7 +49,7 @@ public class NotepadWindow extends JFrame{
     }
     
     public void resetText(){
-        textArea.setText(null);
+        textArea.setText(new String());
     }
     
 }
