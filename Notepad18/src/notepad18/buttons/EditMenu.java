@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import notepad18.app.NotepadWindow;
+import notepad18.app.NotepadReplaceWindow;
 
 /**
  *
@@ -25,7 +26,8 @@ public class EditMenu extends Menu implements ActionListener{
     private MenuItem cut = new MenuItem();
     private MenuItem copy = new MenuItem();
     private MenuItem paste = new MenuItem();
-   
+    private MenuItem replace = new MenuItem();
+    
     private NotepadMenu notepadMenu;
     private NotepadWindow notepadWindow;
     
@@ -55,6 +57,10 @@ public class EditMenu extends Menu implements ActionListener{
         paste.setLabel("Paste");
         paste.addActionListener(this);
         this.add(paste);
+        
+        replace.setLabel("Replace");
+        replace.addActionListener(this);
+        this.add(replace);
     }
     
     @Override
@@ -107,6 +113,11 @@ public class EditMenu extends Menu implements ActionListener{
             } catch (AWTException e){
                 System.out.println("Failed to create robot");
             }
+        }
+        
+        else if(event.getSource() == this.replace){
+            NotepadReplaceWindow windReplace = new NotepadReplaceWindow();
+            windReplace.setVisible(true);
         }
     }
     

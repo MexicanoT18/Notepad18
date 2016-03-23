@@ -5,6 +5,7 @@
  */
 package notepad18;
 
+import notepad18.app.NotepadReplaceWindow;
 import notepad18.app.NotepadWindow;
 
 /**
