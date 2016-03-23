@@ -21,7 +21,7 @@ public class NotepadTextArea extends TextArea{
         
         super("", 0,0, TextArea.SCROLLBARS_VERTICAL_ONLY);
         
-        this.setFont(new Font("Century Gothic", Font.BOLD, 12));
+        this.setFont(new Font("Times New Roman", Font.BOLD, 12));
         
     }
     

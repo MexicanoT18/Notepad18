@@ -38,6 +38,8 @@ public class FileMenu extends Menu implements ActionListener{
     
     private JFileChooser save;
     
+    boolean hasSaved = false;
+    
     public void initialize(NotepadMenu menu){
         
         this.setLabel("File");
@@ -78,6 +80,7 @@ public class FileMenu extends Menu implements ActionListener{
         }
         
         else if (event.getSource() == this.openFile) {
+            hasSaved = false;
             JFileChooser open = new JFileChooser();
             int option = open.showOpenDialog(notepadMenu.getNotepadWindow());
             if (option == JFileChooser.APPROVE_OPTION) {
@@ -91,7 +94,7 @@ public class FileMenu extends Menu implements ActionListener{
             }
 	} 
         
-	else if (event.getSource() == this.saveAsFile) {
+	else if (event.getSource() == this.saveAsFile || (event.getSource() == this.saveFile && !hasSaved)) {
             save = new JFileChooser();
             int option = save.showSaveDialog(notepadWindow);
             if (option == JFileChooser.APPROVE_OPTION) {
@@ -112,7 +115,7 @@ public class FileMenu extends Menu implements ActionListener{
             }
 	}
         
-        else if (event.getSource() == this.saveFile){
+        else if (event.getSource() == this.saveFile && hasSaved){
             try {
                 BufferedWriter out = new BufferedWriter(new FileWriter(save.getSelectedFile().getPath()));
                 String str = notepadWindow.getTextArea().getText();

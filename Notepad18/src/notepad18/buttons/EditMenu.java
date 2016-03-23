@@ -21,6 +21,7 @@ import notepad18.app.NotepadWindow;
 public class EditMenu extends Menu implements ActionListener{
     
     private MenuItem undo = new MenuItem();
+    private MenuItem redo = new MenuItem();
     private MenuItem cut = new MenuItem();
     private MenuItem copy = new MenuItem();
     private MenuItem paste = new MenuItem();
@@ -38,6 +39,10 @@ public class EditMenu extends Menu implements ActionListener{
         undo.setLabel("Undo");
         undo.addActionListener(this);
         this.add(undo);
+        
+        redo.setLabel("Redo");
+        redo.addActionListener(this);
+        this.add(redo);
         
         cut.setLabel("Cut");
         cut.addActionListener(this);
@@ -59,6 +64,16 @@ public class EditMenu extends Menu implements ActionListener{
                 Robot robot = new Robot();
                 robot.keyPress(KeyEvent.VK_CONTROL);
                 robot.keyPress(KeyEvent.VK_Z);
+            } catch (AWTException e){
+                System.out.println("Failed to create robot");
+            }
+        }
+        
+        else if (event.getSource() == this.redo){
+            try{
+                Robot robot = new Robot();
+                robot.keyPress(KeyEvent.VK_CONTROL);
+                robot.keyPress(KeyEvent.VK_Y);
             } catch (AWTException e){
                 System.out.println("Failed to create robot");
             }
