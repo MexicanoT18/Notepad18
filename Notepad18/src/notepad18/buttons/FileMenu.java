@@ -97,7 +97,14 @@ public class FileMenu extends Menu implements ActionListener{
             if (option == JFileChooser.APPROVE_OPTION) {
 		try {
                     BufferedWriter out = new BufferedWriter(new FileWriter(save.getSelectedFile().getPath()));
-                    out.write(notepadWindow.getTextArea().getText());
+                    String str = notepadWindow.getTextArea().getText();
+                    for(int i=0; i<str.length(); i++){
+                        if (str.charAt(i)=='\n'){
+                            out.newLine();
+                        }
+                        else out.write(str.charAt(i));
+                    }
+                    //out.write(notepadWindow.getTextArea().getText());
                     out.close();
 		} catch (Exception ex) {
                     System.out.println(ex.getMessage());
@@ -108,7 +115,14 @@ public class FileMenu extends Menu implements ActionListener{
         else if (event.getSource() == this.saveFile){
             try {
                 BufferedWriter out = new BufferedWriter(new FileWriter(save.getSelectedFile().getPath()));
-                out.write(notepadWindow.getTextArea().getText());
+                String str = notepadWindow.getTextArea().getText();
+                    for(int i=0; i<str.length(); i++){
+                        if (str.charAt(i)=='\n'){
+                            out.newLine();
+                        }
+                        else out.write(str.charAt(i));
+                    }
+                    //out.write(notepadWindow.getTextArea().getText());
                 out.close();
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
