@@ -6,6 +6,7 @@
 package notepad18.app;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import javax.swing.JFrame;
 import notepad18.buttons.NotepadMenu;
 
@@ -49,6 +50,10 @@ public class NotepadWindow extends JFrame{
     
     public void close(){
         this.dispose();
+    }
+    
+    public void resetText(){
+        textArea.setText(null);
     }
     
 }

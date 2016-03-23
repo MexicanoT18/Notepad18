@@ -16,6 +16,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
+import notepad18.app.NotepadWindow;
 
 /**
  *
@@ -28,15 +29,25 @@ public class FileMenu extends Menu implements ActionListener{
     
     private MenuItem openFile = new MenuItem();
     private MenuItem saveFile = new MenuItem();
+    private MenuItem saveAsFile = new MenuItem();
     private MenuItem close = new MenuItem();
+    private MenuItem newFile = new MenuItem();
     
     private NotepadMenu notepadMenu;
+    private NotepadWindow notepadWindow;
+    
+    private JFileChooser save;
     
     public void initialize(NotepadMenu menu){
         
         this.setLabel("File");
         
-        openFile.setLabel("Open");
+        newFile.setLabel("New");
+        newFile.addActionListener(this);
+        newFile.setShortcut(new MenuShortcut(KeyEvent.VK_N, false));
+        this.add(newFile);
+        
+        openFile.setLabel("Open...");
         openFile.addActionListener(this);
         openFile.setShortcut(new MenuShortcut(KeyEvent.VK_O, false));
         this.add(openFile);
@@ -46,12 +57,17 @@ public class FileMenu extends Menu implements ActionListener{
         saveFile.setShortcut(new MenuShortcut(KeyEvent.VK_S, false));
         this.add(saveFile);
         
-        close.setLabel("Close");
+        saveAsFile.setLabel("Save As...");
+        saveAsFile.addActionListener(this);
+        this.add(saveAsFile);
+        
+        close.setLabel("Exit");
         close.addActionListener(this);
         close.setShortcut(new MenuShortcut(KeyEvent.VK_F4, false));
         this.add(close);
         
         this.notepadMenu = menu;
+        this.notepadWindow = menu.getNotepadWindow();
     }
     
     @Override
@@ -65,29 +81,43 @@ public class FileMenu extends Menu implements ActionListener{
             JFileChooser open = new JFileChooser();
             int option = open.showOpenDialog(notepadMenu.getNotepadWindow());
             if (option == JFileChooser.APPROVE_OPTION) {
-		notepadMenu.getNotepadWindow().getTextArea().setText("");
+		notepadWindow.getTextArea().setText("");
 		try {
                     Scanner scan = new Scanner(new FileReader(open.getSelectedFile().getPath()));
-                    while (scan.hasNext()) notepadMenu.getNotepadWindow().getTextArea().append(scan.nextLine() + "\n"); // append the line to the TextArea
+                    while (scan.hasNext()) notepadWindow.getTextArea().append(scan.nextLine() + "\n"); // append the line to the TextArea
                 } catch (Exception ex) {
                     System.out.println(ex.getMessage());
 		}
             }
 	} 
         
-	else if (event.getSource() == this.saveFile) {
-            JFileChooser save = new JFileChooser();
-            int option = save.showSaveDialog(notepadMenu.getNotepadWindow());
+	else if (event.getSource() == this.saveAsFile) {
+            save = new JFileChooser();
+            int option = save.showSaveDialog(notepadWindow);
             if (option == JFileChooser.APPROVE_OPTION) {
 		try {
                     BufferedWriter out = new BufferedWriter(new FileWriter(save.getSelectedFile().getPath()));
-                    out.write(notepadMenu.getNotepadWindow().getTextArea().getText());
+                    out.write(notepadWindow.getTextArea().getText());
                     out.close();
 		} catch (Exception ex) {
                     System.out.println(ex.getMessage());
 		}
             }
 	}
+        
+        else if (event.getSource() == this.saveFile){
+            try {
+                BufferedWriter out = new BufferedWriter(new FileWriter(save.getSelectedFile().getPath()));
+                out.write(notepadWindow.getTextArea().getText());
+                out.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        
+        else if(event.getSource() == this.newFile){
+            notepadWindow.resetText();
+        }
         
     }
     

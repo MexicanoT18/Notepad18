@@ -22,6 +22,8 @@ import notepad18.app.NotepadWindow;
 public class NotepadMenu extends MenuBar{
     
     FileMenu file = new FileMenu();
+    EditMenu edit = new EditMenu();
+    
     NotepadWindow notepadWindow;
     
     public void initialize(NotepadWindow window){
@@ -30,6 +32,9 @@ public class NotepadMenu extends MenuBar{
         
         file.initialize(this);
         this.add(file);
+        
+        edit.initialize(this);
+        this.add(edit);
         
     }
     
