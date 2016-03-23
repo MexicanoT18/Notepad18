@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/dv7/Documents/CES-22/Notepad18/Notepad18/src/notepad18/app/MainWindow.java</file>
+            <file>file:/C:/Users/dv7/Documents/CES-22/Notepad18/Notepad18/src/notepad18/app/NotepadTextArea.java</file>
+            <file>file:/C:/Users/dv7/Documents/CES-22/Notepad18/Notepad18/src/notepad18/app/NotepadWindow.java</file>
+            <file>file:/C:/Users/dv7/Documents/CES-22/Notepad18/Notepad18/src/notepad18/buttons/NotepadMenu.java</file>
+            <file>file:/C:/Users/dv7/Documents/CES-22/Notepad18/Notepad18/src/notepad18/buttons/FileMenu.java</file>
             <file>file:/C:/Users/dv7/Documents/CES-22/Notepad18/Notepad18/src/notepad18/NotepadApp.java</file>
         </group>
     </open-files>
