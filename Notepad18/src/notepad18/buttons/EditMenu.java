@@ -116,7 +116,7 @@ public class EditMenu extends Menu implements ActionListener{
         }
         
         else if(event.getSource() == this.replace){
-            NotepadReplaceWindow windReplace = new NotepadReplaceWindow();
+            NotepadReplaceWindow windReplace = new NotepadReplaceWindow(this.notepadWindow);
             windReplace.setVisible(true);
         }
     }
