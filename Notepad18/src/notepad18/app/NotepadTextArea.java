@@ -6,7 +6,7 @@
 package notepad18.app;
 
 import java.awt.Font;
-import java.awt.TextArea;
+import javax.swing.*;
 
 /**
  *
@@ -15,11 +15,11 @@ import java.awt.TextArea;
  * Trabalha com tudo relacionado ao texto. É um objeto TextArea.
  * 
  */
-public class NotepadTextArea extends TextArea{
+public class NotepadTextArea extends JTextArea{
     
     public NotepadTextArea(){
-        
-        super("", 0,0, TextArea.SCROLLBARS_VERTICAL_ONLY);
+        super();
+        //super("", 0,0, JTextArea.SCROLLBARS_VERTICAL_ONLY);
         
         this.setFont(new Font("Times New Roman", Font.BOLD, 12));
         

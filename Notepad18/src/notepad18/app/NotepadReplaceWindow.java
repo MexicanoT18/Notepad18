@@ -98,6 +98,7 @@ public class NotepadReplaceWindow extends JFrame implements ActionListener{
             //Varre o texto em busca das ocorrencias em lookFor
             aux = 0;
             pos = 0;
+            /*
             while(pos > 0){
                 pos = text.indexOf(lookFor, aux);
                 try{
@@ -107,7 +108,8 @@ public class NotepadReplaceWindow extends JFrame implements ActionListener{
                     System.out.println(e.getMessage());
                 }
             }
-                    
+            
+            */
             //notepadWindow.getTextArea().setText("find");
         }
         else if(event.getSource() == this.replace){
