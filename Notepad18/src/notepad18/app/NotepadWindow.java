@@ -9,6 +9,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 import notepad18.buttons.NotepadMenu;
 
 /**
@@ -28,6 +29,7 @@ public class NotepadWindow extends JFrame{
     
     private NotepadMenu menu = new NotepadMenu();
     private NotepadTextArea textArea = new NotepadTextArea();
+    //private JScrollPane scrollArea;
     
     public NotepadWindow(){
         
