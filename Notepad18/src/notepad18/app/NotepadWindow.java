@@ -29,15 +29,16 @@ public class NotepadWindow extends JFrame{
     
     private NotepadMenu menu = new NotepadMenu();
     private NotepadTextArea textArea = new NotepadTextArea();
-    //private JScrollPane scrollArea;
+    private JScrollPane scrollArea;
     
     public NotepadWindow(){
         
         this.setSize(WIDTH, HEIGHT);
         this.setTitle("Notepad18");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        scrollArea = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         this.getContentPane().setLayout(new BorderLayout()); // the BorderLayout bit makes it fill it automatically
-	this.getContentPane().add(textArea);
+	this.getContentPane().add(scrollArea);
         
         menu.initialize(this);
         this.setMenuBar(menu);
