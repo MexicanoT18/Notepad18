@@ -15,6 +15,7 @@ import java.awt.event.*;
 import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Highlighter;
 import javax.swing.text.Highlighter.HighlightPainter;
+import java.util.*;
 
 /**
  *
@@ -32,6 +33,9 @@ public class NotepadReplaceWindow extends JFrame implements ActionListener{
     private JTextField replaceText;
     
     private NotepadWindow notepadWindow;
+    
+    int aux = 0;
+    boolean next = false;
     
     public NotepadReplaceWindow(NotepadWindow window) {
        this.setSize(WIDTH, HEIGHT);
@@ -82,34 +86,36 @@ public class NotepadReplaceWindow extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent event){
         if(event.getSource() == this.find){
-            int lenText, lenLookFor, aux, pos;
+            int lenText, lenLookFor, pos;
             
             String text = notepadWindow.getTextArea().getText();
+            JTextArea display = notepadWindow.getTextArea();
             String lookFor = findText.getText();
             
             lenText = text.length();
             lenLookFor = lookFor.length();
             
             JTextArea a = new JTextArea(12,10);
-            //Highlighter g = a.getHighlighter();
-            //Highlighter h = notepadWindow.getTextArea().
-            //h.removeAllHighlights();
-            //HighlightPainter painter = new DefaultHighlighter.DefaultHighlightPainter(Color.pink);
             //Varre o texto em busca das ocorrencias em lookFor
-            aux = 0;
-            pos = 0;
-            /*
-            while(pos > 0){
-                pos = text.indexOf(lookFor, aux);
-                try{
-                    h.addHighlight(pos, pos+lenLookFor, painter);
-                    aux = pos+lenLookFor;
-                }catch(Exception e){
-                    System.out.println(e.getMessage());
-                }
+            pos = 1;
+            if(next == false){
+                aux = 0;
+            }
+            pos = text.indexOf(lookFor, aux);
+            System.out.println("pos = "+Integer.toString(pos)+", aux = "+Integer.toString(aux)+", next = "+Boolean.toString(next));
+            if(pos > 0){
+                display.requestFocus();
+                display.select(pos, pos+lenLookFor);
+                aux = pos+lenLookFor+1;
+                next = true;
+            }else{
+                display.requestFocus();
+                display.select(0, 0);
+                next = false;
+                aux = 0;
+                pos = 1;
             }
             
-            */
             //notepadWindow.getTextArea().setText("find");
         }
         else if(event.getSource() == this.replace){
