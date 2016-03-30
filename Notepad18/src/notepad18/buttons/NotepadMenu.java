@@ -23,6 +23,7 @@ public class NotepadMenu extends MenuBar{
     
     FileMenu file = new FileMenu();
     EditMenu edit = new EditMenu();
+    CustomizeMenu customize = new CustomizeMenu();
     
     NotepadWindow notepadWindow;
     
@@ -35,6 +36,9 @@ public class NotepadMenu extends MenuBar{
         
         edit.initialize(this);
         this.add(edit);
+        
+        customize.initialize(this);
+        this.add(customize);
         
     }
     
