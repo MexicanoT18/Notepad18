@@ -6,6 +6,7 @@
 package notepad18.app;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JFrame;
 import notepad18.buttons.NotepadMenu;
@@ -51,5 +52,74 @@ public class NotepadWindow extends JFrame{
     public void resetText(){
         textArea.setText(new String());
     }
+      
+    public void whiteBackground(){
+        textArea.setBackground(Color.white);
+    }
     
+    public void blackBackground(){
+        textArea.setBackground(Color.black);
+    }
+    
+    public void Font8(){
+        textArea.setFont(new Font("Times New Roman", Font.BOLD, 8));
+    }
+    
+    public void Font10(){
+        textArea.setFont(new Font("Times New Roman", Font.BOLD, 10));
+    }
+    
+    public void Font12(){
+        textArea.setFont(new Font("Times New Roman", Font.BOLD, 12));
+    }
+    
+    public void Font14(){
+        textArea.setFont(new Font("Times New Roman", Font.BOLD, 14));
+    }
+    
+    public void Font16(){
+        textArea.setFont(new Font("Times New Roman", Font.BOLD, 16));
+    }
+    
+    public void redFont(){
+        textArea.setForeground(Color.red);
+    }
+    
+    public void orangeFont(){
+        textArea.setForeground(Color.orange);
+    }
+    
+    public void yellowFont(){
+        textArea.setForeground(Color.yellow);
+    }
+    
+    public void greenFont(){
+        textArea.setForeground(Color.green);
+    }
+    
+    public void cyanFont(){
+        textArea.setForeground(Color.cyan);
+    }
+    
+    public void blueFont(){
+        textArea.setForeground(Color.blue);
+    }
+    
+    public void purpleFont(){
+        textArea.setForeground(Color.magenta);
+    }
+    
+    public void whiteFont(){
+        textArea.setForeground(Color.white);
+    }
+    
+    public void blackFont(){
+        textArea.setForeground(Color.black);
+    }
+    
+    public void customizationReset(){
+        textArea.setBackground(Color.white);
+        textArea.setFont(new Font("Times New Roman", Font.BOLD, 12));
+        textArea.setForeground(Color.black);
+    }
 }
