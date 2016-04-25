@@ -39,6 +39,8 @@ public class FileMenu extends Menu implements ActionListener{
     private JFileChooser save;
     
     boolean hasSaved = false;
+    boolean hasOpened = false;
+    String path = "";
     
     public void initialize(NotepadMenu menu){
         
@@ -80,7 +82,8 @@ public class FileMenu extends Menu implements ActionListener{
         }
         
         else if (event.getSource() == this.openFile) {
-            hasSaved = false;
+            hasSaved = true;
+            hasOpened = true;
             JFileChooser open = new JFileChooser();
             int option = open.showOpenDialog(notepadMenu.getNotepadWindow());
             if (option == JFileChooser.APPROVE_OPTION) {
