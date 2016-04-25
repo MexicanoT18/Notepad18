@@ -15,7 +15,7 @@ import javax.swing.*;
  * Trabalha com tudo relacionado ao texto. É um objeto TextArea.
  * 
  */
-public class NotepadTextArea extends JTextArea{
+public class NotepadTextArea extends JTextPane{
     
     public NotepadTextArea(){
         super();
@@ -23,6 +23,10 @@ public class NotepadTextArea extends JTextArea{
         
         this.setFont(new Font("Times New Roman", Font.BOLD, 12));
         
+    }
+    
+    public void append (String s){
+        setText (getText() + s);
     }
     
 }

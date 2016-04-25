@@ -89,7 +89,7 @@ public class NotepadReplaceWindow extends JFrame implements ActionListener{
             int lenText, lenLookFor, pos;
             
             String text = notepadWindow.getTextArea().getText();
-            JTextArea display = notepadWindow.getTextArea();
+            NotepadTextArea display = notepadWindow.getTextArea();
             String lookFor = findText.getText();
             
             lenText = text.length();
