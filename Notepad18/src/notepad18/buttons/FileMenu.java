@@ -95,6 +95,7 @@ public class FileMenu extends Menu implements ActionListener{
                     System.out.println(ex.getMessage());
 		}
             }
+            path = open.getSelectedFile().getPath();
 	}
         
 	else if (event.getSource() == this.saveAsFile || (event.getSource() == this.saveFile && !hasSaved)) {
@@ -121,16 +122,31 @@ public class FileMenu extends Menu implements ActionListener{
         
         else if (event.getSource() == this.saveFile && hasSaved){
             try {
-                BufferedWriter out = new BufferedWriter(new FileWriter(save.getSelectedFile().getPath()));
-                String str = notepadWindow.getTextArea().getText();
-                for(int i=0; i<str.length(); i++){
-                    if (str.charAt(i)=='\n'){
-                        out.newLine();
+                if (hasOpened == false){
+                    BufferedWriter out = new BufferedWriter(new FileWriter(save.getSelectedFile().getPath()));
+                    String str = notepadWindow.getTextArea().getText();
+                    for(int i=0; i<str.length(); i++){
+                        if (str.charAt(i)=='\n'){
+                            out.newLine();
+                        }
+                        else out.write(str.charAt(i));
                     }
-                    else out.write(str.charAt(i));
+                    
+                    out.close();
+                }
+                else {
+                    BufferedWriter out = new BufferedWriter(new FileWriter(path));
+                    String str = notepadWindow.getTextArea().getText();
+                    for(int i=0; i<str.length(); i++){
+                        if (str.charAt(i)=='\n'){
+                            out.newLine();
+                        }
+                        else out.write(str.charAt(i));
+                    }
+                    out.close();
                 }
                 //out.write(notepadWindow.getTextArea().getText());
-                out.close();
+                //out.close();
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
