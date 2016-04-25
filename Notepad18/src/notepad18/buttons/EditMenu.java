@@ -70,6 +70,7 @@ public class EditMenu extends Menu implements ActionListener{
                 Robot robot = new Robot();
                 robot.keyPress(KeyEvent.VK_CONTROL);
                 robot.keyPress(KeyEvent.VK_Z);
+                robot.keyRelease(KeyEvent.VK_CONTROL);
             } catch (AWTException e){
                 System.out.println("Failed to create robot");
             }
@@ -80,6 +81,7 @@ public class EditMenu extends Menu implements ActionListener{
                 Robot robot = new Robot();
                 robot.keyPress(KeyEvent.VK_CONTROL);
                 robot.keyPress(KeyEvent.VK_Y);
+                robot.keyRelease(KeyEvent.VK_CONTROL);
             } catch (AWTException e){
                 System.out.println("Failed to create robot");
             }
@@ -90,6 +92,7 @@ public class EditMenu extends Menu implements ActionListener{
                 Robot robot = new Robot();
                 robot.keyPress(KeyEvent.VK_CONTROL);
                 robot.keyPress(KeyEvent.VK_X);
+                robot.keyRelease(KeyEvent.VK_CONTROL);
             } catch (AWTException e){
                 System.out.println("Failed to create robot");
             }
@@ -100,6 +103,7 @@ public class EditMenu extends Menu implements ActionListener{
                 Robot robot = new Robot();
                 robot.keyPress(KeyEvent.VK_CONTROL);
                 robot.keyPress(KeyEvent.VK_C);
+                robot.keyRelease(KeyEvent.VK_CONTROL);
             } catch (AWTException e){
                 System.out.println("Failed to create robot");
             }
@@ -110,6 +114,7 @@ public class EditMenu extends Menu implements ActionListener{
                 Robot robot = new Robot();
                 robot.keyPress(KeyEvent.VK_CONTROL);
                 robot.keyPress(KeyEvent.VK_V);
+                robot.keyRelease(KeyEvent.VK_CONTROL);
             } catch (AWTException e){
                 System.out.println("Failed to create robot");
             }
