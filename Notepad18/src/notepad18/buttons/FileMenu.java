@@ -88,9 +88,12 @@ public class FileMenu extends Menu implements ActionListener{
             int option = open.showOpenDialog(notepadMenu.getNotepadWindow());
             if (option == JFileChooser.APPROVE_OPTION) {
 		notepadWindow.getTextArea().setText("");
+                String newText = "";
+                
 		try {
                     Scanner scan = new Scanner(new FileReader(open.getSelectedFile().getPath()));
-                    while (scan.hasNext()) notepadWindow.getTextArea().append(scan.nextLine() + "\n"); // append the line to the TextArea
+                    while (scan.hasNext()) newText = newText + scan.nextLine() + "\n";
+                    notepadWindow.getTextArea().setText(newText);
                 } catch (Exception ex) {
                     System.out.println(ex.getMessage());
 		}
