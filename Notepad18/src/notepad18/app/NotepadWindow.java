@@ -105,77 +105,79 @@ public class NotepadWindow extends JFrame{
     }
     
     public void Font14(){
-        Font font = new Font("Times New Roman", Font.BOLD, 14);
-        String bodyRule = "body { font-family: " + font.getFamily() + "; " + 
-                "font-size: " + font.getSize() + "pt; }";
+        String bodyRule = "body { font-size: 14pt; }";
         ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void Font16(){
-        Font font = new Font("Times New Roman", Font.BOLD, 16);
-        String bodyRule = "body { font-family: " + font.getFamily() + "; " + 
-                "font-size: " + font.getSize() + "pt; }";
+        String bodyRule = "body { font-size: 16pt; }";
         ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void Font18(){
-        Font font = new Font("Times New Roman", Font.BOLD, 18);
-        String bodyRule = "body { font-family: " + font.getFamily() + "; " + 
-                "font-size: " + font.getSize() + "pt; }";
+        String bodyRule = "body { font-size: 18pt; }";
         ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void Font20(){
-        Font font = new Font("Times New Roman", Font.BOLD, 20);
-        String bodyRule = "body { font-family: " + font.getFamily() + "; " + 
-                "font-size: " + font.getSize() + "pt; }";
+        String bodyRule = "body { font-size: 20pt; }";
         ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void Font22(){
-        Font font = new Font("Times New Roman", Font.BOLD, 22);
-        String bodyRule = "body { font-family: " + font.getFamily() + "; " + 
-                "font-size: " + font.getSize() + "pt; }";
+        String bodyRule = "body { font-size: 22pt; }";
         ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void redFont(){
-        textArea.setForeground(Color.red);
+        String bodyRule = "body { color: \"red\" }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void orangeFont(){
-        textArea.setForeground(Color.orange);
+        String bodyRule = "body { color: \"orange\" }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void yellowFont(){
-        textArea.setForeground(Color.yellow);
+        String bodyRule = "body { color: \"yellow\" }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void greenFont(){
-        textArea.setForeground(Color.green);
+        String bodyRule = "body { color: \"green\" }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void cyanFont(){
-        textArea.setForeground(Color.cyan);
+        String bodyRule = "body { color: \"#00ffff\" }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void blueFont(){
-        textArea.setForeground(Color.blue);
+        String bodyRule = "body { color: \"blue\" }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void purpleFont(){
-        textArea.setForeground(Color.magenta);
+        String bodyRule = "body { color: \"purple\" }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void whiteFont(){
-        textArea.setForeground(Color.white);
+        String bodyRule = "body { color: \"white\" }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void blackFont(){
-        textArea.setForeground(Color.black);
+        String bodyRule = "body { color: \"black\" }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void customizationReset(){
+        String bodyRule = "body { font-family: Times New Roman }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
+        
         whiteBackground();
         Font18();
         blackFont();
