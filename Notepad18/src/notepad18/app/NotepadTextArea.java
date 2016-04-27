@@ -30,10 +30,6 @@ public class NotepadTextArea extends JTextPane{
         
     }
     
-    public void append (String s){
-        setText (getText() + s);
-    }
-    
     public void initListener() {
         getDocument().addDocumentListener(new DocumentListener(){
             public void insertUpdate(DocumentEvent docEv) {

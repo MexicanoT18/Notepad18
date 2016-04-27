@@ -31,11 +31,11 @@ public class CustomizeMenu extends Menu implements ActionListener {
     private MenuItem blackbg = new MenuItem();
     
 
-    private MenuItem font8 = new MenuItem();
-    private MenuItem font10 = new MenuItem();
-    private MenuItem font12 = new MenuItem();
     private MenuItem font14 = new MenuItem();
     private MenuItem font16 = new MenuItem();
+    private MenuItem font18 = new MenuItem();
+    private MenuItem font20 = new MenuItem();
+    private MenuItem font22 = new MenuItem();
     
     private MenuItem redtext = new MenuItem();
     private MenuItem orangetext = new MenuItem();
@@ -82,18 +82,6 @@ public class CustomizeMenu extends Menu implements ActionListener {
         blackbg.addActionListener(this);
         background.add(blackbg);
         
-        font8.setLabel("8");
-        font8.addActionListener(this);
-        fontsize.add(font8);
-        
-        font10.setLabel("10");
-        font10.addActionListener(this);
-        fontsize.add(font10);
-        
-        font12.setLabel("12");
-        font12.addActionListener(this);
-        fontsize.add(font12);
-        
         font14.setLabel("14");
         font14.addActionListener(this);
         fontsize.add(font14);
@@ -101,6 +89,18 @@ public class CustomizeMenu extends Menu implements ActionListener {
         font16.setLabel("16");
         font16.addActionListener(this);
         fontsize.add(font16);
+        
+        font18.setLabel("18");
+        font18.addActionListener(this);
+        fontsize.add(font18);
+        
+        font20.setLabel("20");
+        font20.addActionListener(this);
+        fontsize.add(font20);
+        
+        font22.setLabel("22");
+        font22.addActionListener(this);
+        fontsize.add(font22);
         
         redtext.setLabel("Red");
         redtext.addActionListener(this);
@@ -153,20 +153,20 @@ public class CustomizeMenu extends Menu implements ActionListener {
         else if (event.getSource() == this.fontsize){
             
         }
-        else if (event.getSource() == this.font8){
-            notepadWindow.Font8();
-        }
-        else if (event.getSource() == this.font10){
-            notepadWindow.Font10();
-        }
-        else if (event.getSource() == this.font12){
-            notepadWindow.Font12();
-        }
         else if (event.getSource() == this.font14){
             notepadWindow.Font14();
         }
         else if (event.getSource() == this.font16){
             notepadWindow.Font16();
+        }
+        else if (event.getSource() == this.font18){
+            notepadWindow.Font18();
+        }
+        else if (event.getSource() == this.font20){
+            notepadWindow.Font20();
+        }
+        else if (event.getSource() == this.font22){
+            notepadWindow.Font22();
         }
         else if (event.getSource() == this.fontcolor){
             

@@ -19,6 +19,7 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
+import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
 import notepad18.buttons.NotepadMenu;
 
@@ -79,6 +80,8 @@ public class NotepadWindow extends JFrame{
         
         menu.initialize(this);
         this.setMenuBar(menu);
+        
+        customizationReset();
     }
     
     public NotepadTextArea getTextArea(){
@@ -101,24 +104,39 @@ public class NotepadWindow extends JFrame{
         textArea.setBackground(Color.black);
     }
     
-    public void Font8(){
-        textArea.setFont(new Font("Times New Roman", Font.BOLD, 8));
-    }
-    
-    public void Font10(){
-        textArea.setFont(new Font("Times New Roman", Font.BOLD, 10));
-    }
-    
-    public void Font12(){
-        textArea.setFont(new Font("Times New Roman", Font.BOLD, 12));
-    }
-    
     public void Font14(){
-        textArea.setFont(new Font("Times New Roman", Font.BOLD, 14));
+        Font font = new Font("Times New Roman", Font.BOLD, 14);
+        String bodyRule = "body { font-family: " + font.getFamily() + "; " + 
+                "font-size: " + font.getSize() + "pt; }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void Font16(){
-        textArea.setFont(new Font("Times New Roman", Font.BOLD, 16));
+        Font font = new Font("Times New Roman", Font.BOLD, 16);
+        String bodyRule = "body { font-family: " + font.getFamily() + "; " + 
+                "font-size: " + font.getSize() + "pt; }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
+    }
+    
+    public void Font18(){
+        Font font = new Font("Times New Roman", Font.BOLD, 18);
+        String bodyRule = "body { font-family: " + font.getFamily() + "; " + 
+                "font-size: " + font.getSize() + "pt; }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
+    }
+    
+    public void Font20(){
+        Font font = new Font("Times New Roman", Font.BOLD, 20);
+        String bodyRule = "body { font-family: " + font.getFamily() + "; " + 
+                "font-size: " + font.getSize() + "pt; }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
+    }
+    
+    public void Font22(){
+        Font font = new Font("Times New Roman", Font.BOLD, 22);
+        String bodyRule = "body { font-family: " + font.getFamily() + "; " + 
+                "font-size: " + font.getSize() + "pt; }";
+        ((HTMLDocument)textArea.getDocument()).getStyleSheet().addRule(bodyRule);
     }
     
     public void redFont(){
@@ -158,9 +176,9 @@ public class NotepadWindow extends JFrame{
     }
     
     public void customizationReset(){
-        textArea.setBackground(Color.white);
-        textArea.setFont(new Font("Times New Roman", Font.BOLD, 12));
-        textArea.setForeground(Color.black);
+        whiteBackground();
+        Font18();
+        blackFont();
     }
     
     private class MyHTMLEditorKit extends HTMLEditorKit{
