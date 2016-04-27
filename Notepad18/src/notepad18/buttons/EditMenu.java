@@ -12,6 +12,13 @@ import java.awt.Robot;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import javax.swing.event.UndoableEditEvent;
+import javax.swing.event.UndoableEditListener;
+import javax.swing.text.Document;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.undo.CannotUndoException;
+import javax.swing.undo.UndoManager;
+import notepad18.app.NotepadTextArea;
 import notepad18.app.NotepadWindow;
 import notepad18.app.NotepadReplaceWindow;
 
@@ -22,6 +29,7 @@ import notepad18.app.NotepadReplaceWindow;
 public class EditMenu extends Menu implements ActionListener{
     
     private MenuItem undo = new MenuItem();
+    private UndoManager undoManager = new UndoManager();
     private MenuItem redo = new MenuItem();
     private MenuItem cut = new MenuItem();
     private MenuItem copy = new MenuItem();
@@ -61,29 +69,35 @@ public class EditMenu extends Menu implements ActionListener{
         replace.setLabel("Replace");
         replace.addActionListener(this);
         this.add(replace);
+        
+        HTMLDocument doc;
+        doc = (HTMLDocument)notepadWindow.getTextArea().getDocument();
+        doc.addUndoableEditListener(new UndoableEditListener() {
+           public void undoableEditHappened (UndoableEditEvent e){
+               undoManager.addEdit(e.getEdit());
+           } 
+        });
     }
     
     @Override
     public void actionPerformed(ActionEvent event){
         if (event.getSource() == this.undo){
             try{
-                Robot robot = new Robot();
-                robot.keyPress(KeyEvent.VK_CONTROL);
-                robot.keyPress(KeyEvent.VK_Z);
-                robot.keyRelease(KeyEvent.VK_CONTROL);
-            } catch (AWTException e){
-                System.out.println("Failed to create robot");
+                if (undoManager.canUndo()){
+                    undoManager.undo();
+                }
+            } catch (CannotUndoException e){
+                System.out.println("Failed to undo");
             }
         }
         
         else if (event.getSource() == this.redo){
             try{
-                Robot robot = new Robot();
-                robot.keyPress(KeyEvent.VK_CONTROL);
-                robot.keyPress(KeyEvent.VK_Y);
-                robot.keyRelease(KeyEvent.VK_CONTROL);
-            } catch (AWTException e){
-                System.out.println("Failed to create robot");
+                if (undoManager.canRedo()){
+                    undoManager.redo();
+                }
+            } catch (CannotUndoException e){
+                System.out.println("Failed to redo");
             }
         }
         
@@ -125,5 +139,5 @@ public class EditMenu extends Menu implements ActionListener{
             windReplace.setVisible(true);
         }
     }
-    
+   
 }

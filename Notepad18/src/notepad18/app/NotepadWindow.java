@@ -40,13 +40,14 @@ public class NotepadWindow extends JFrame{
     
     boolean changeCursor = true;
     
-    private NotepadMenu menu = new NotepadMenu();
     private NotepadTextArea textArea = new NotepadTextArea(){
         public void setCursor (Cursor cursor){
             if (changeCursor)
                 super.setCursor(cursor);
         }
     };
+    private NotepadMenu menu = new NotepadMenu();
+    
     private JScrollPane scrollArea;
     
     public NotepadWindow(){
